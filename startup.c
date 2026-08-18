@@ -1,11 +1,11 @@
 /*
  * startup.c  --  Minimal C startup + vector table for STM32F103 (Cortex-M3).
  * ---------------------------------------------------------------------------
- * Before main() can run, SOMEONE has to: set the initial stack pointer, copy
- * initialised globals from flash to RAM (.data), zero uninitialised globals
- * (.bss), and place the reset vector. On a "real" project the vendor ships
- * this; writing it yourself proves you understand the C runtime and the
- * memory map. The linker script (stm32f103.ld) provides the symbols below.
+ * Executes before main(): sets the initial stack pointer, copies initialised
+ * globals from flash to RAM (.data), zeroes uninitialised globals (.bss), and
+ * defines the interrupt vector table. The symbols referenced below (_sidata,
+ * _sdata, _edata, _sbss, _ebss, _estack) are provided by the linker script
+ * (stm32f103.ld).
  */
 #include <stdint.h>
 
