@@ -2,10 +2,9 @@
  * stm32f103.ld  --  Linker script for STM32F103C8T6 (Blue Pill).
  * Flash: 64 KB @ 0x08000000   |   SRAM: 20 KB @ 0x20000000
  *
- * The linker script is the map that tells the toolchain WHERE each section
- * lands in the chip's memory. Understanding it is a genuine firmware skill:
- * it's how you know .text/.rodata live in flash while .data/.bss live in RAM,
- * and how the startup code finds the addresses it needs to copy .data.
+ * The linker script tells the toolchain where each section is placed in the
+ * chip's memory: .text/.rodata in flash, .data/.bss in RAM. It also exports
+ * the symbols the startup code uses to initialise .data and zero .bss.
  */
 ENTRY(Reset_Handler)
 
